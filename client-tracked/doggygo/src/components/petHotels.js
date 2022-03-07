@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
+// current mission find hotel api to make slider dynamic
 const PetHotels = () => {
   return (
     <section id="petHotels">

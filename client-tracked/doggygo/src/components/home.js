@@ -3,6 +3,7 @@ import React from "react";
 import CTA from "./CTA";
 // import puppiesSuitcase from "../static/images/puppiesSuitcase.jpeg";
 import HomeSocials from "./homeSocials";
+// did i want to have more done yes, yes i did. but also batman came out and a new season of rick and morty on netflix so whos really to blame for my lack of productivity.
 
 const Home = () => {
   return (

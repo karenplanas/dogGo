@@ -9,6 +9,8 @@ import {
   useMap,
 } from "react-leaflet";
 
+// there is so much to do here but i have an idea of how to do it.
+
 import { Icon, L } from "leaflet";
 
 import LocationMarker from "./locationMarker";

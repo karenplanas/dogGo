@@ -18,6 +18,7 @@
   cursor: default;
 }
 
+/* will be a picture but temporarily make it slightly pretty  */
 .hotel_head {
   background: var(--color-primary);
   padding: 2rem;
