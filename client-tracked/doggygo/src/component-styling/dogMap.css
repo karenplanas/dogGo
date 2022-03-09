@@ -12,10 +12,16 @@
 }
 
 .map_buttons {
-  z-index: 1000000; /* necessary */
+  z-index: 998; /* necessary */
   display: flex;
   gap: 0.8rem;
   flex-direction: column;
   left: 0.5rem;
-  bottom: 3rem;
+  bottom: 6rem;
+}
+
+.clear {
+  background-color: red;
+  opacity: 0.7;
+  color: white;
 }

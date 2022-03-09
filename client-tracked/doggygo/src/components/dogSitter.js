@@ -1,10 +1,8 @@
 import "../component-styling/dogSitter.css";
 import React, { useEffect, useState } from "react";
-
 import { Pagination, Navigation, A11y } from "swiper";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import avatarPic from "../static/images/avatar.jpg";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -50,6 +48,7 @@ const DogSitter = () => {
     });
   };
 
+  // need avatar images have found middleware that allows images to be stored to mongoose but ive also read this is bad practice.
   return (
     <section id="dogSitter">
       <h2> Book a holiday for your pet with our profesional pet sitters </h2>
@@ -69,10 +68,10 @@ const DogSitter = () => {
           sitters.map((sitter) => (
             <SwiperSlide key={sitter._id} className="sitter">
               <div className="sitter_avatar">
-                <img />
+                <img src={avatarPic} alt="avatar" className="avatarPic" />
               </div>
-              <h5 className="sitterName"> {sitter.name} </h5>
-              <small className="sitter_quote">{sitter.quote}</small>
+              <h5 className="sitterName"> {sitter.name.toUpperCase()} </h5>
+              <small className="sitter_quote"> " {sitter.quote} "</small>
               <div className="sitter_buttons">
                 <button className="btn btn-primary "> message Sitter </button>
                 <button className="btn learn"> Learn More </button>
@@ -92,7 +91,7 @@ const DogSitter = () => {
       </Swiper>
       <div className="become-sitter">
         <button
-          className="btn btn-primary become-sitter"
+          className="btn btn-primary join"
           onClick={() => setPopupActive(true)}
         >
           Join our team!
@@ -111,6 +110,7 @@ const DogSitter = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="add name here.."
+                className="textArea"
               />
               <br />
               <label> About you </label>
@@ -120,6 +120,7 @@ const DogSitter = () => {
                 type="text"
                 value={quote}
                 onChange={(e) => setQuote(e.target.value)}
+                className="textArea about"
                 placeholder="tell us a bit about yourself and animal experience here.."
               />
               <br />
@@ -129,13 +130,14 @@ const DogSitter = () => {
                 type="text"
                 value={avatar}
                 onChange={(e) => setAvatar(e.target.value)}
+                className="textArea"
                 placeholder="eventually you will upload a photo here.."
               />
               <br />
               <div className="form_buttons">
-                <button className="btn"> Join! </button>
+                <button className="btn submitBtn"> Join! </button>
                 <button
-                  className="btn btn-primary become-sitter"
+                  className="btn btn-primary"
                   onClick={() => setPopupActive(false)}
                 >
                   close

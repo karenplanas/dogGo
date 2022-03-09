@@ -5,7 +5,10 @@
 }
 
 .hotel {
-  background: var(--color-bg-variant);
+  background-image: url("../static/images/hotel.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   border-radius: 0 0 2rem 2rem;
   border: 1px solid var(--color-primary);
   height: fit-content;
@@ -13,7 +16,8 @@
 }
 
 .hotel:hover {
-  background: transparent;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
+    url("../static/images/hotel.jpg");
   border-color: var(--color-primary-variant);
   cursor: default;
 }

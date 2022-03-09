@@ -1,18 +1,23 @@
 .container .sitter_container {
   width: 40%;
+  position: relative;
 }
 
 h5 {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .sitter_avatar {
-  width: 4rem;
+  width: 8rem;
   aspect-ratio: 1/1;
   overflow: hidden;
   border-radius: 50%;
   border: 0.4rem solid var(--color-primary-variant);
   margin: 0 auto 1rem;
+}
+
+.avatarPic {
+  height: 100%;
 }
 
 .sitter {
@@ -21,6 +26,12 @@ h5 {
   padding: 2rem;
   border-radius: 2rem;
   user-select: none;
+  position: relative;
+}
+
+.sitterName {
+  font-size: 1.5rem;
+  font-style: bold;
 }
 
 .sitter_quote {
@@ -37,6 +48,12 @@ h5 {
   margin-top: 2rem;
 }
 
+.join {
+  border: 1px solid var(--color-light);
+  height: 3rem;
+  color: whitesmoke;
+}
+
 .learn {
   background: transparent;
 }
@@ -44,16 +61,55 @@ h5 {
 .become-sitter {
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .form_buttons {
   display: flex;
   gap: 0.8rem;
+  padding: 0.8rem;
+  justify-content: center;
 }
 
-/* Form needs styling!! fixed position center screen high z-index*/
+.popupForm {
+  background: rgba(0, 0, 0, 0.5);
+  width: max-content;
+  display: block;
+  padding: 0.7 1.7rem;
+  z-index: 10000000;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 25rem;
+  border-radius: 3rem;
+  backdrop-filter: blur(15px);
+  text-align: center;
+}
 
+form {
+  padding: 0.9rem;
+  width: 60vw;
+}
+
+.formTitle {
+  padding: 1rem;
+}
+
+.textArea {
+  height: 3rem;
+  margin: 0.5rem;
+  width: 45vw;
+  border-radius: 2%;
+  border: 2px solid var(--color-primary-variant);
+}
+
+.about {
+  height: 10vh;
+}
+
+small {
+  font-style: italic;
+}
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 1024px) {
