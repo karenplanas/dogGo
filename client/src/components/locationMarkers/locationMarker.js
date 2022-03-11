@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 // import "../component-styling/dogMap.css";
 import { Marker, Popup, useMap, Circle, CircleMarker } from "react-leaflet";
 // import "../components/dogMap/dogMap.css"
-import '../Map/dogMap.css'
+// import '../Map/dogMap.css'
 
 import { circleMarker, L } from "leaflet";
 
