@@ -5,11 +5,10 @@ import DogSitter from "./components/dogSitter/dogSitter";
 import Login from "./components/login/login";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import DogMap from "./components/dogMap/dogMap";
+import DogMap from "./components/Map/Map";
 import PetHotels from "./components/petHotels/petHotels";
 
-function App() {
-  const user = false;
+const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className="App">
@@ -23,11 +22,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-
-    // <div className="app">
-    //   <Login />
-    // </div>
   );
 }
 
-export default App;
+export { App };
