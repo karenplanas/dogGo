@@ -5,7 +5,7 @@ import avatarPic from "../../static/images/avatar.jpg";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "./dogSitter.css";
+import "./Sitter.css";
 import { ISitter } from "../../interfaces/ISitter";
 const APIbase = "http://localhost:3001";
 
