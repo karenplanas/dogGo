@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
-import "../component-styling/petHotels.css";
 import { BiCheck } from "react-icons/bi";
 import { Navigation, Pagination, A11y } from "swiper";
-
 import { Swiper, SwiperSlide } from "swiper/react";
+import './petHotels.css'
 
 // Import Swiper styles
 import "swiper/css";

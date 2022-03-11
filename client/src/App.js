@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Home from "./components/home";
-import Nav from "./components/nav";
-import DogSitter from "./components/dogSitter";
-import Login from "./components/login";
+import Home from "./components/home/home";
+import Nav from "./components/nav/nav";
+import DogSitter from "./components/dogSitter/dogSitter";
+import Login from "./components/login/login";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import DogMap from "./components/dogMap";
-import PetHotels from "./components/petHotels";
+import DogMap from "./components/dogMap/dogMap";
+import PetHotels from "./components/petHotels/petHotels";
 
 function App() {
   const user = false;

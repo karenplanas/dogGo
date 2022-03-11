@@ -1,11 +1,11 @@
-import "../component-styling/dogSitter.css";
 import React, { useEffect, useState } from "react";
 import { Pagination, Navigation, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import avatarPic from "../static/images/avatar.jpg";
+import avatarPic from "../../static/images/avatar.jpg";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import './dogSitter.css'
 
 const APIbase = "http://localhost:3001";
 

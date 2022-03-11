@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import "../component-styling/dogMap.css";
 import { GiDogBowl } from "react-icons";
 import {
   MapContainer,
@@ -10,26 +9,30 @@ import {
   useMap,
   MapConsumer,
 } from "react-leaflet";
+import './dogMap.css'
 
 // there is so much to do here but i have an idea of how to do it.
 
 import { Icon, L } from "leaflet";
 
-import LocationMarker from "./locationMarker";
+import LocationMarker from "../locationMarkers/locationMarker";
 
 const petShopIcon = new Icon({
-  iconUrl: require("../static/icons/petShop.png"),
+  // iconUrl: require("../static/icons/petShop.png"),
+  iconUrl: require("../../static/icons/petShop.png"),
   iconSize: [30, 30],
 });
 
 const vetIcon = new Icon({
   iconSize: [30, 30],
-  iconUrl: require("../static/icons/vet.png"),
+  // iconUrl: require("../static/icons/vet.png"),
+  iconUrl: require("../../static/icons/vet.png"),
 });
 
 const groomerIcon = new Icon({
   iconSize: [30, 30],
-  iconUrl: require("../static/icons/prints.png"),
+  // iconUrl: require("../static/icons/prints.png"),
+  iconUrl: require("../../static/icons/prints.png"),
 });
 
 function DogMap() {

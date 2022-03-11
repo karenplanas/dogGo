@@ -1,10 +1,10 @@
-import "../component-styling/nav.css";
 import React from "react";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaMapMarkedAlt, FaHotel } from "react-icons/fa";
 import { GiSittingDog } from "react-icons/gi";
 import { useState } from "react";
 import { useLocation } from "react-router";
+import './nav.css'
 
 const Nav = () => {
   const [activeNav, setActiveNav] = useState("/");

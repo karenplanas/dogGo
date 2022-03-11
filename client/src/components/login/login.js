@@ -1,8 +1,8 @@
 import { FcGoogle } from "react-icons/fc";
 import { AiFillFacebook } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
-import "../component-styling/login.css";
 import { useNavigate } from "react-router-dom";
+import './login.css'
 
 const Login = () => {
   const navigate = useNavigate();
