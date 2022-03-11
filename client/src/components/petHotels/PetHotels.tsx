@@ -2,15 +2,13 @@ import React, { useEffect, useState, useCallback } from "react";
 import { BiCheck } from "react-icons/bi";
 import { Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import './petHotels.css'
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import { BsFillSquareFill } from "react-icons/bs";
-// current mission find hotel api to make slider dynamic
-const PetHotels = () => {
-  const [hotels, setHotels] = useState([]);
+import { IHotel } from "../../interfaces/IHotel";
+import './PetHotels.css'
+
+const PetHotels: React.FC = () => {
+  const [hotels, setHotels] = useState<IHotel[]>([]);
 
   const options = {
     method: "GET",
@@ -28,7 +26,7 @@ const PetHotels = () => {
     const json = await response.json();
     console.log(json.results);
     setHotels(json.results);
-  });
+  }, []);
 
   useEffect(() => {
     fetchHotels();
@@ -97,4 +95,4 @@ const PetHotels = () => {
   );
 };
 
-export default PetHotels;
+export { PetHotels };

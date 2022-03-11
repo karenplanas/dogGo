@@ -1,44 +1,32 @@
-import { useState, useEffect, useCallback } from "react";
-import { GiDogBowl } from "react-icons";
-import {
-  MapContainer,
-  Marker,
-  Popup,
-  TileLayer,
-  useMapEvents,
-  useMap,
-  MapConsumer,
-} from "react-leaflet";
-import './dogMap.css'
-
-// there is so much to do here but i have an idea of how to do it.
-
-import { Icon, L } from "leaflet";
-
+import React from 'react';
+import { useState, useCallback } from "react";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { Icon } from "leaflet";
 import LocationMarker from "../locationMarkers/locationMarker";
+import './Map.css'
+import { IPetShop } from '../../interfaces/IPetShop';
+import { IVeterinarian } from '../../interfaces/IVeterinarian';
+import { IGroomer } from '../../interfaces/IGroomer';
 
 const petShopIcon = new Icon({
-  // iconUrl: require("../static/icons/petShop.png"),
   iconUrl: require("../../static/icons/petShop.png"),
   iconSize: [30, 30],
 });
 
 const vetIcon = new Icon({
   iconSize: [30, 30],
-  // iconUrl: require("../static/icons/vet.png"),
   iconUrl: require("../../static/icons/vet.png"),
 });
 
 const groomerIcon = new Icon({
   iconSize: [30, 30],
-  // iconUrl: require("../static/icons/prints.png"),
   iconUrl: require("../../static/icons/prints.png"),
 });
 
-function DogMap() {
-  const [petShops, setPetShops] = useState([]);
-  const [vets, setVets] = useState([]);
-  const [groomers, setGroomers] = useState([]);
+const Map: React.FC = () => {
+  const [petShops, setPetShops] = useState<IPetShop[]>([]);
+  const [vets, setVets] = useState<IVeterinarian[]>([]);
+  const [groomers, setGroomers] = useState<IGroomer[]>([]);
 
   const options = {
     method: "GET",
@@ -56,7 +44,7 @@ function DogMap() {
     const json = await response.json();
     console.log(json.results);
     setPetShops(json.results);
-  });
+  }, []);
 
   const fetchVets = useCallback(async () => {
     const response = await fetch(
@@ -66,7 +54,7 @@ function DogMap() {
     const json = await response.json();
     console.log(json.results);
     setVets(json.results);
-  });
+  }, []);
 
   const fetchGroomers = useCallback(async () => {
     const response = await fetch(
@@ -76,7 +64,7 @@ function DogMap() {
     const json = await response.json();
     console.log(json.results);
     setGroomers(json.results);
-  });
+  }, []);
 
   const shopClick = () => {
     fetchShops();
@@ -125,7 +113,7 @@ function DogMap() {
             Clear Markers
           </button>
         </div>
-        <TileLayer
+        <TileLayer 
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright"></a>'
         />
@@ -183,18 +171,9 @@ function DogMap() {
             </Marker>
           );
         })}
-        <MapConsumer>
-          {(map) => {
-            console.log("map center:", map.getCenter());
-            map.on("click", function (e) {
-              <Marker position={e.latlng}></Marker>;
-            });
-            return null;
-          }}
-        </MapConsumer>
         <LocationMarker />
       </MapContainer>
     </section>
   );
 }
-export default DogMap;
+export { Map };

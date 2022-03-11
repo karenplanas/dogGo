@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/home/home";
 import Nav from "./components/nav/nav";
 import DogSitter from "./components/dogSitter/dogSitter";
 import Login from "./components/login/login";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import DogMap from "./components/dogMap/dogMap";
-import PetHotels from "./components/petHotels/petHotels";
+import { Map } from "./components/Map/Map";
+import { PetHotels } from "./components/PetHotels/PetHotels";
 
-function App() {
-  const user = false;
+const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className="App">
@@ -18,16 +17,12 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="petHotels" element={<PetHotels />} />
-          <Route path="dogMap" element={<DogMap />} />
+          <Route path="dogMap" element={<Map />} />
           <Route path="dogSitter" element={<DogSitter />} />
         </Routes>
       </div>
     </BrowserRouter>
-
-    // <div className="app">
-    //   <Login />
-    // </div>
   );
 }
 
-export default App;
+export { App };
