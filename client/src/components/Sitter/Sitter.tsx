@@ -5,12 +5,12 @@ import avatarPic from "../../static/images/avatar.jpg";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import './dogSitter.css'
-
+import "./Sitter.css";
+import { ISitter } from "../../interfaces/ISitter";
 const APIbase = "http://localhost:3001";
 
-const DogSitter = () => {
-  const [sitters, setSitters] = useState([]);
+const DogSitter: React.FC = () => {
+  const [sitters, setSitters] = useState<ISitter[]>([]);
   const [popupActive, setPopupActive] = useState(false);
   const [name, setName] = useState("");
   const [quote, setQuote] = useState("");
@@ -27,9 +27,10 @@ const DogSitter = () => {
     getSitters();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newSitter = {
+      _id: null,
       name,
       quote,
       avatar,
