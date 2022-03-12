@@ -3,7 +3,7 @@ import React from "react";
 const CTA = () => {
   return (
     <div className="cta">
-      <a href="#dogMap" className="btn">
+      <a href="#map" className="btn">
         Pet Adventures
       </a>
       <a href="#dogSitter" className=" btn btn-primary">

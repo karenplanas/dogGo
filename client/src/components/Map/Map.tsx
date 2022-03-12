@@ -1,179 +1,155 @@
-import React from "react";
-import { useState, useCallback } from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { Icon } from "leaflet";
-import LocationMarker from "../LocationMarkers/locationMarker";
-import "./Map.css";
-import { IPetShop } from "../../interfaces/IPetShop";
-import { IVeterinarian } from "../../interfaces/IVeterinarian";
-import { IGroomer } from "../../interfaces/IGroomer";
+import React, { useEffect, useState } from 'react';
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { Icon, LatLng, divIcon } from "leaflet";
+import clsx from 'clsx';
+import { CATEGORIES, fetchWithFilters } from '../../services/ApiClient';
+import { IPlace } from '../../interfaces/IPlace';
+import { vetIcon, groomerIcon, petShopIcon, userPositionIcon } from '../marker-icons';
+import './Map.css'
 
-const petShopIcon = new Icon({
-  iconUrl: require("../../static/icons/petShop.png"),
-  iconSize: [30, 30],
-});
+const ContextualizedMap: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [userPosition, setUserPosition] = useState<LatLng>()
+  const [boundingBox, setBoundingBox] = useState<{ sw: [number, number], ne: [number, number] }>()
+  const [places, setPlaces] = useState<IPlace[]>([]);
+  const [filters, setFilters] = useState({
+    shop: true,
+    vet: true,
+    groomer: true
+  })
+  
+  const map = useMap();
 
-const vetIcon = new Icon({
-  iconSize: [30, 30],
-  iconUrl: require("../../static/icons/vet.png"),
-});
+  // Center the map on user position
+  useEffect(() => {
+    map.locate().on("locationfound", function (e) {
+      setUserPosition(e.latlng)
+      map.flyTo(e.latlng, map.getZoom());
+    });
+  }, [map]);
 
-const groomerIcon = new Icon({
-  iconSize: [30, 30],
-  iconUrl: require("../../static/icons/prints.png"),
-});
+  // When the screen is moved sets the new center
+  useEffect(() => {
+    map.on('moveend', (e) => {
+      const { _southWest: sw, _northEast: ne } = e.target.getBounds()
+      setBoundingBox({ sw: [sw.lat, sw.lng], ne: [ne.lat, ne.lng] })
+    })
+  }, [map])
+  
+  useEffect(() => {
+    if(isLoading || !boundingBox) {
+      return
+    }
 
-const Map: React.FC = () => {
-  const [petShops, setPetShops] = useState<IPetShop[]>([]);
-  const [vets, setVets] = useState<IVeterinarian[]>([]);
-  const [groomers, setGroomers] = useState<IGroomer[]>([]);
+    setIsLoading(true)
 
-  const options = {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      Authorization: "fsq3qx9qlhqnNGwk86iRqQd7xt0tH9hVD5fk+5VhNkjbt7E=",
-    },
-  };
+    const categories = Object.entries(filters)
+      .filter(([_key, value]) => value) 
+      .map(([key]) => key) //will return an array of strings (elements that have value true)
 
-  const fetchShops = useCallback(async () => {
-    const response = await fetch(
-      "https://api.foursquare.com/v3/places/nearby?ll=52.24%2C0.71&query=pet%20supplies&limit=10",
-      options
-    );
-    const json = await response.json();
-    console.log(json.results);
-    setPetShops(json.results);
-  }, []);
+    if(categories.length === 0) {
+      setPlaces([])
+      return
+    }
 
-  const fetchVets = useCallback(async () => {
-    const response = await fetch(
-      "https://api.foursquare.com/v3/places/nearby?ll=52.24%2C0.71&query=veterinary&limit=10",
-      options
-    );
-    const json = await response.json();
-    console.log(json.results);
-    setVets(json.results);
-  }, []);
-
-  const fetchGroomers = useCallback(async () => {
-    const response = await fetch(
-      "https://api.foursquare.com/v3/places/nearby?ll=52.24%2C0.71&query=groomers&limit=10",
-      options
-    );
-    const json = await response.json();
-    console.log(json.results);
-    setGroomers(json.results);
-  }, []);
+    // Fetch catergories  
+    fetchWithFilters(categories as ('shop' | 'vet' | 'groomer')[], boundingBox)
+      .then((result) => {
+        setIsLoading(false)
+        setPlaces(result)
+      })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters, map, boundingBox] )
+  
 
   const shopClick = () => {
-    fetchShops();
-    setGroomers([]);
-    setVets([]);
+    setFilters((curr) => ({
+      ...curr,
+      shop: !curr.shop
+    }))
   };
 
   const vetClick = () => {
-    fetchVets();
-    setGroomers([]);
-    setPetShops([]);
+    setFilters((curr) => ({
+      ...curr,
+      vet: !curr.vet
+    }))
   };
 
   const groomerClick = () => {
-    fetchGroomers();
-    setPetShops([]);
-    setVets([]);
-  };
-
-  const clearMarkers = () => {
-    setGroomers([]);
-    setPetShops([]);
-    setVets([]);
+    setFilters((curr) => ({
+      ...curr,
+      groomer: !curr.groomer
+    }))
   };
 
   return (
-    <section id="dogMap">
-      <h2>Everything your pet could want no matter where you are!</h2>
-      <h5> keep your pet happy and healthy with our easy map</h5>
-      <MapContainer
-        center={[1.35, 135.8]}
-        zoom={13}
-        className="container mapContainer"
-      >
+    <>
         <div className="map_buttons">
-          <button className="btn btn-primary" onClick={shopClick}>
-            Pet Shops
+          <button className={ clsx("btn", "btn-primary", { selected: filters.shop }) } onClick={shopClick}>
+            { filters.shop ? 'Hide' : 'Show' } Pet Shops
           </button>
-          <button className="btn btn-primary" onClick={vetClick}>
-            veterinary clinics
+          <button className={ clsx("btn", "btn-primary", { selected: filters.vet }) } onClick={vetClick}>
+           { filters.vet ? 'Hide' : 'Show' } veterinary clinics
           </button>
-          <button className="btn btn-primary" onClick={groomerClick}>
-            Groomers
-          </button>
-          <button className="btn btn-primary clear" onClick={clearMarkers}>
-            Clear Markers
+          <button className={ clsx("btn", "btn-primary", { selected: filters.groomer }) } onClick={groomerClick}>
+           { filters.groomer ? 'Hide' : 'Show' } Groomers
           </button>
         </div>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright"></a>'
+        <TileLayer 
+          url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}.png"
+          // attribution='&copy; <a href="https://www.openstreetmap.org/copyright"></a>'
         />
-        {petShops.map((shop) => {
-          return shop.geocodes.main === undefined ? (
+        
+        {places.map((place) => {
+          let icon: Icon | ReturnType<typeof divIcon>
+          
+          if(place.categories.find((c) => c.id === CATEGORIES.vet)) {
+            icon = vetIcon
+          } else if(place.categories.find((c) => c.id === CATEGORIES.groomer)) {
+            icon = groomerIcon
+          } else {
+            icon = petShopIcon
+          }
+            
+          return place.geocodes.main === undefined ? (
             ""
           ) : (
             <Marker
-              key={shop.fsq_id}
+              key={place.fsq_id}
               position={[
-                shop.geocodes.main.latitude,
-                shop.geocodes.main.longitude,
+                place.geocodes.main.latitude,
+                place.geocodes.main.longitude,
               ]}
-              icon={petShopIcon}
+              icon={icon}
             >
               <Popup>
-                {shop.name} <br /> {shop.location.formatted_address}
+                {place.name} <br /> {place.location.formatted_address}
               </Popup>
             </Marker>
           );
         })}
-        {vets.map((vet) => {
-          return vet.geocodes.main === undefined ? (
-            ""
-          ) : (
-            <Marker
-              key={vet.fsq_id}
-              position={[
-                vet.geocodes.main.latitude,
-                vet.geocodes.main.longitude,
-              ]}
-              icon={vetIcon}
-            >
-              <Popup>
-                {vet.name} <br /> {vet.location.formatted_address}
-              </Popup>
-            </Marker>
-          );
-        })}
-        {groomers.map((groomer) => {
-          return groomer.geocodes.main === undefined ? (
-            ""
-          ) : (
-            <Marker
-              key={groomer.fsq_id}
-              position={[
-                groomer.geocodes.main.latitude,
-                groomer.geocodes.main.longitude,
-              ]}
-              icon={groomerIcon}
-            >
-              <Popup>
-                {groomer.name} <br /> {groomer.location.formatted_address}
-              </Popup>
-            </Marker>
-          );
-        })}
-        <LocationMarker />
-      </MapContainer>
-    </section>
+        { userPosition && 
+          <Marker
+            position={[
+              userPosition.lat,
+              userPosition.lng,
+            ]}
+            icon={userPositionIcon}
+          />
+        }
+    </>
   );
-};
+}
+
+const Map: React.FC = () => {
+  return (
+    <div id="map-container">
+      <MapContainer zoom={13} center={[41.0378688, -8.6388822]}>
+        <ContextualizedMap />
+      </MapContainer>
+    </div>
+  );
+}
+
 export { Map };

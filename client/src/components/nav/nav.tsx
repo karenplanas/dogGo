@@ -31,9 +31,9 @@ const Nav: React.FC = () => {
             <FaHotel />
           </a>
           <a
-            href="dogMap"
-            onClick={() => setActiveNav("dogMap")}
-            className={activeNav === "dogMap" ? "active" : ""}
+            href="map"
+            onClick={() => setActiveNav("map")}
+            className={activeNav === "map" ? "active" : ""}
           >
             <FaMapMarkedAlt />
           </a>

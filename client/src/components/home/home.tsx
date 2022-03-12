@@ -1,9 +1,9 @@
 import React from "react";
 import CTA from "../CTA/CTA";
 import puppiesSuitcase from "../../static/images/transparent.png";
-import HomeSocials from "../HomeSocials/homeSocials";
 // did i want to have more done yes, yes i did. but also batman came out and a new season of rick and morty on netflix so whos really to blame for my lack of productivity.
 import "./home.css";
+import HomeSocials from "../HomeSocials/HomeSocials";
 
 // testing
 const Home: React.FC = () => {

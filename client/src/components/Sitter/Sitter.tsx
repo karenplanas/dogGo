@@ -9,7 +9,7 @@ import "./Sitter.css";
 import { ISitter } from "../../interfaces/ISitter";
 const APIbase = "http://localhost:3001";
 
-const DogSitter: React.FC = () => {
+const Sitter: React.FC = () => {
   const [sitters, setSitters] = useState<ISitter[]>([]);
   const [popupActive, setPopupActive] = useState(false);
   const [name, setName] = useState("");
@@ -154,4 +154,4 @@ const DogSitter: React.FC = () => {
   );
 };
 
-export default DogSitter;
+export { Sitter }

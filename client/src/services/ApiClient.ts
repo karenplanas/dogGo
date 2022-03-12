@@ -1,3 +1,5 @@
+import { IPlace } from "../interfaces/IPlace";
+
 const baseUrl = 'https://api.foursquare.com/v3/places/';
 
 const options = {
@@ -8,20 +10,24 @@ const options = {
   },
 };
 
-const fetchShops = async () => {
-  const response = await fetch(`${baseUrl}nearby?ll=52.24%2C0.71&query=pet%20supplies&limit=10`, options);
-  return response.json();
+const CATEGORIES = {
+  shop: 11134,
+  vet: 15054,
+  groomer: 17110 
+} 
+
+const fetchWithFilters = async (
+  categories: ('shop' | 'vet' | 'groomer')[], 
+  { sw, ne }: { 
+    sw:[number, number], 
+    ne: [number, number]
+  }): Promise<IPlace[]> => {
+  const cat = categories.map(c => CATEGORIES[c]).join(',');
+  const response = await fetch(`${baseUrl}search?categories=${cat}&limit=50&sw=${sw.join(',')}&ne=${ne.join(',')}&sort=distance`, options);
+  const body = await response.json();
+  return body.results;
 };
 
-const fetchVets = async () => {
-  const response = await fetch(`${baseUrl}nearby?ll=52.24%2C0.71&query=veterinary&limit=10`, options);
-  return response.json();
-};
 
-const fetchGroomers = async () => {
-  const response = await fetch(`${baseUrl}nearby?ll=52.24%2C0.71&query=groomers&limit=10`, options);
-  return response.json();
-};
-
-export { fetchShops, fetchVets, fetchGroomers }
+export { fetchWithFilters, CATEGORIES }
 
