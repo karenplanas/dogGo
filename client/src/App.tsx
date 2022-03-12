@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/home/home";
+import Home from "./components/Home/home";
 import Nav from "./components/nav/nav";
 import DogSitter from "./components/dogSitter/dogSitter";
 import Login from "./components/login/login";
@@ -23,6 +23,6 @@ const App: React.FC = () => {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export { App };

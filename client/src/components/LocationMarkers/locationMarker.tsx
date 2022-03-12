@@ -5,7 +5,7 @@ import { Marker, Popup, useMap, Circle } from "react-leaflet";
 // import '../Map/dogMap.css'
 
 const LocationMarker: React.FC = () => {
-  const [position, setPosition] = useState(null);
+  const [position, setPosition] = useState<IPosition[]>(null);
 
   const map = useMap();
 
