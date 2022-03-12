@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/home";
-import Nav from "./components/nav/nav";
-import DogSitter from "./components/dogSitter/dogSitter";
+import Nav from "./components/Nav/nav";
+import DogSitter from "./components/Sitter/Sitter";
 import Login from "./components/login/login";
 
 import { Map } from "./components/Map/Map";
-import { PetHotels } from "./components/PetHotels/PetHotels";
+import { PetHotels } from "./components/petHotels/PetHotels";
 
 const App: React.FC = () => {
   return (
