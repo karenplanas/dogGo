@@ -5,6 +5,7 @@ import HomeSocials from "../homeSocials/homeSocials";
 // did i want to have more done yes, yes i did. but also batman came out and a new season of rick and morty on netflix so whos really to blame for my lack of productivity.
 import "./home.css";
 
+// testing
 const Home: React.FC = () => {
   return (
     <header id="home">
