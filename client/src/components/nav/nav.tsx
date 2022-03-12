@@ -4,9 +4,9 @@ import { FaMapMarkedAlt, FaHotel } from "react-icons/fa";
 import { GiSittingDog } from "react-icons/gi";
 import { useState } from "react";
 import { useLocation } from "react-router";
-import './nav.css'
+import "./nav.css";
 
-const Nav = () => {
+const Nav: React.FC = () => {
   const [activeNav, setActiveNav] = useState("/");
   const { pathname } = useLocation();
 

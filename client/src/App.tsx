@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/home/home";
-import Nav from "./components/nav/nav";
+import Home from "./components/Home/home";
+import Nav from "./components/Nav/nav";
 import { Sitter } from "./components/Sitter/Sitter";
 import Login from "./components/login/login";
 
 import { Map } from "./components/Map/Map";
-import { PetHotels } from "./components/PetHotels/PetHotels";
+import { PetHotels } from "./components/petHotels/PetHotels";
 
 const App: React.FC = () => {
   return (
@@ -23,6 +23,6 @@ const App: React.FC = () => {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export { App };
