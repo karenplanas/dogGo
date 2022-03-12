@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import { useState, useCallback } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
-import LocationMarker from "../locationMarkers/locationMarker";
-import './Map.css'
-import { IPetShop } from '../../interfaces/IPetShop';
-import { IVeterinarian } from '../../interfaces/IVeterinarian';
-import { IGroomer } from '../../interfaces/IGroomer';
+import LocationMarker from "../LocationMarkers/locationMarker";
+import "./Map.css";
+import { IPetShop } from "../../interfaces/IPetShop";
+import { IVeterinarian } from "../../interfaces/IVeterinarian";
+import { IGroomer } from "../../interfaces/IGroomer";
 
 const petShopIcon = new Icon({
   iconUrl: require("../../static/icons/petShop.png"),
@@ -113,7 +113,7 @@ const Map: React.FC = () => {
             Clear Markers
           </button>
         </div>
-        <TileLayer 
+        <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright"></a>'
         />
@@ -175,5 +175,5 @@ const Map: React.FC = () => {
       </MapContainer>
     </section>
   );
-}
+};
 export { Map };
