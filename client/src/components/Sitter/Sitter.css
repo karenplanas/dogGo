@@ -1,10 +1,17 @@
+.Sitter-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  gap: 1rem;
+  justify-content: center;
+}
+
+
 .container .sitter_container {
   width: 40%;
   position: relative;
-}
-
-h5 {
-  margin-bottom: 1.5rem;
 }
 
 .sitter_avatar {
@@ -27,6 +34,7 @@ h5 {
   border-radius: 2rem;
   user-select: none;
   position: relative;
+  margin-top: 3rem;
 }
 
 .sitterName {
@@ -77,7 +85,7 @@ h5 {
   display: block;
   padding: 0.7 1.7rem;
   z-index: 10000000;
-  position: fixed;
+  position: relative;
   left: 50%;
   transform: translateX(-50%);
   bottom: 25rem;
@@ -99,8 +107,10 @@ form {
   height: 3rem;
   margin: 0.5rem;
   width: 45vw;
-  border-radius: 2%;
+  border-radius: 4px;
   border: 2px solid var(--color-primary-variant);
+  padding-left: 2rem;
+  font-size: 1rem;
 }
 
 .about {
@@ -109,9 +119,9 @@ form {
 
 small {
   font-style: italic;
+  font-size: 1rem;
 }
 /* MEDIA QUERIES */
-
 @media screen and (max-width: 1024px) {
   .container .sitter_container {
     width: 60%;

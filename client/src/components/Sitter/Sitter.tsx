@@ -52,11 +52,10 @@ const Sitter: React.FC = () => {
   // need avatar images have found middleware that allows images to be stored to mongoose but ive also read this is bad practice.
   return (
     <section id="dogSitter">
-      <h2> Book a holiday for your pet with our profesional pet sitters </h2>
-      <h5>
-        each one of pet sitters are specialists in animal care wether in your
-        home or theirs, you can leave your animal guilt free
-      </h5>
+      <div className="Sitter-titles">
+        <h2> Book a sitter for your pet </h2>
+        <h3> Specialists in animal care will take care of your pet wether in your home or theirs </h3>
+      </div>
       <Swiper
         className="container sitter_container"
         modules={[Pagination, Navigation, A11y]}
@@ -101,7 +100,7 @@ const Sitter: React.FC = () => {
       {popupActive ? (
         <div className="popupForm">
           <div className="formDiv">
-            <h2 className="formTitle"> Become a sitter!</h2>
+            <h2 className="formTitle"> Become a sitter</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
               <label>Name</label>
               <br />
