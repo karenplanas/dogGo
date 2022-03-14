@@ -1,11 +1,10 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 dotenv.config();
 import router from "./router";
 import * as db from "./models/db";
-
-const app = express();
+export const app = express();
 const PORT = 3001;
 
 app.use(express.json());
