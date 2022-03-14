@@ -1,4 +1,5 @@
 import express from "express";
+import { isYieldExpression } from "typescript";
 import Sitter from "../models/sitter";
 
 export const getSitters = async (
@@ -7,11 +8,13 @@ export const getSitters = async (
 ) => {
   try {
     const sitters = await Sitter.find();
-    res.json(sitters);
+    res.json({ data: sitters });
     res.status(200);
   } catch (e) {
     res.status(500);
-    res.send()
+    res.json({ error: "unknown message" });
+    // res.json({ error: e.message });
+    // res.send();
   }
 };
 
@@ -26,10 +29,10 @@ export const addSitter = async (
       avatar: req.body.avatar,
     });
     await sitter.save();
-    res.json(sitter);
     res.status(201);
+    res.json(sitter);
   } catch (e) {
     res.status(500);
-    res.send()
+    res.send();
   }
 };
