@@ -1,3 +1,4 @@
+import { IHotel } from "../interfaces/IHotel";
 import { IPlace } from "../interfaces/IPlace";
 
 const baseUrl = 'https://api.foursquare.com/v3/places/';
@@ -28,6 +29,13 @@ const fetchWithFilters = async (
   return body.results;
 };
 
+//coordinates should be changed here, based on current location ?
+const fetchHotels = async(): Promise<IHotel[]> => {
+  const response = await fetch(`${baseUrl}nearby?ll=52.24%2C0.71&query=hotels&limit=10`, options)
+  const body = await response.json();
+  return body.results;
+}
 
-export { fetchWithFilters, CATEGORIES }
+
+export { fetchWithFilters, CATEGORIES, fetchHotels }
 
