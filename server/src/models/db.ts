@@ -12,4 +12,7 @@ const connect = async () => {
   }
 }
 
-export { connect }
+const disconnect = () => mongoose.disconnect()
+
+
+export { connect, disconnect }
