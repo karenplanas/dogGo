@@ -11,9 +11,9 @@ const options = {
 };
 
 const CATEGORIES = {
-  shop: 11134,
+  shop: 17110,
   vet: 15054,
-  groomer: 17110 
+  groomer: 11134 
 } 
 
 const fetchWithFilters = async (
