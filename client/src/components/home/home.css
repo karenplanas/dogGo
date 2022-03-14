@@ -1,6 +1,6 @@
 header {
   height: 100vh;
-  padding-top: 7rem;
+  padding-top: 5rem;
   overflow: hidden;
 }
 
@@ -19,7 +19,6 @@ header {
 }
 
 /* socials */
-
 .home_socials {
   display: flex;
   flex-direction: column;
@@ -51,7 +50,7 @@ header {
 }
 
 .dogPic {
-  margin-top: 6rem;
+  /* margin-top: 3rem; */
   height: 15rem;
 }
 /* Scroll down */
@@ -65,7 +64,6 @@ header {
 }
 
 /* MEDIA QUERIES */
-
 @media screen and (max-width: 1024px) {
   .header {
     height: 68vh;
