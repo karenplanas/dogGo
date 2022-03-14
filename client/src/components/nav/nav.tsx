@@ -1,51 +1,38 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaMapMarkedAlt, FaHotel } from "react-icons/fa";
 import { GiSittingDog } from "react-icons/gi";
-import { useState } from "react";
 import { useLocation } from "react-router";
+import clsx from 'clsx'
 import "./nav.css";
 
 const Nav: React.FC = () => {
-  const [activeNav, setActiveNav] = useState("/");
   const { pathname } = useLocation();
 
   return (
     <>
-      {pathname === "/login" ? (
-        <div></div>
-      ) : (
-        <nav>
-          <a
-            href="/"
-            onClick={() => setActiveNav("/")}
-            className={activeNav === "/" ? "active" : ""}
-          >
-            <AiOutlineHome />
-          </a>
-          <a
-            href="petHotels"
-            onClick={() => setActiveNav("petHotel")}
-            className={activeNav === "petHotel" ? "active" : ""}
-          >
-            <FaHotel />
-          </a>
-          <a
-            href="map"
-            onClick={() => setActiveNav("map")}
-            className={activeNav === "map" ? "active" : ""}
-          >
-            <FaMapMarkedAlt />
-          </a>
-          <a
-            href="dogSitter"
-            onClick={() => setActiveNav("dogSitter")}
-            className={activeNav === "dogSitter" ? "active" : ""}
-          >
-            <GiSittingDog />
-          </a>
-        </nav>
-      )}
+      { pathname === "/login" ? (<div></div>) : 
+        (
+          <nav>
+            <Link to="/" className={ clsx({active: pathname === "/"})} >
+              <AiOutlineHome /> 
+            </Link>
+          
+            <Link to="petHotels" className={ clsx({active: pathname.startsWith("/petHotel")})  } >
+              <FaHotel />
+            </Link>
+          
+            <Link to="map" className={ clsx({active:pathname.startsWith("/map")}) } >
+              <FaMapMarkedAlt />
+            </Link>
+            
+            <Link to="sitter" className={ clsx({active: pathname.startsWith("/sitter")}) } >
+              <GiSittingDog />
+            </Link>
+          </nav>
+        )
+      }
     </>
   );
 };
