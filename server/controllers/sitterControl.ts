@@ -1,8 +1,16 @@
-const Sitter = require("../models/sitter");
+import express from "express";
+import Sitter from "../models/sitter";
 
-const getSitters = async (req, res) => {
+const find = () => {
+  throw new Error("Function not implemented.");
+};
+
+export const getSitters = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
-    const sitters = await Sitter.find();
+    const sitters = await find();
     res.json(sitters);
     res.status(201);
   } catch (e) {
@@ -11,7 +19,10 @@ const getSitters = async (req, res) => {
   }
 };
 
-const addSitter = async (req, res) => {
+export const addSitter = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const sitter = new Sitter({
       name: req.body.name,
@@ -26,5 +37,3 @@ const addSitter = async (req, res) => {
     console.log(e);
   }
 };
-
-module.exports = { getSitters, addSitter };
