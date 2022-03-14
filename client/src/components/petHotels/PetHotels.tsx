@@ -34,8 +34,10 @@ const PetHotels: React.FC = () => {
 
   return (
     <section id="petHotels">
-      <h2> Pet Friendly Hotels </h2>
-      <h5> Book a stay at the top rated pet friendly hotels </h5>
+      <div className="PetHotels-titles">
+        <h2> Pet Friendly Hotels </h2>
+        <h3> Book a stay at the top rated pet friendly hotels </h3>
+      </div>
       <Swiper
         className="container hotel_container"
         modules={[Navigation, Pagination, A11y]}
