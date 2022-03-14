@@ -1,13 +1,13 @@
 import express from "express";
 import { isYieldExpression } from "typescript";
-import Sitter from "../models/sitter";
+import {Sitter, findSitters} from "../models/sitter";
 
 export const getSitters = async (
   req: express.Request,
   res: express.Response
 ) => {
   try {
-    const sitters = await Sitter.find();
+    const sitters = await findSitters();
     res.json({ data: sitters });
     res.status(200);
   } catch (e) {
