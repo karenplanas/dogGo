@@ -8,13 +8,11 @@ export const getSitters = async (
 ) => {
   try {
     const sitters = await findSitters();
-    res.json({ data: sitters });
     res.status(200);
+    res.json({ data: sitters });
   } catch (e) {
     res.status(500);
-    res.json({ error: "unknown message" });
-    // res.json({ error: e.message });
-    // res.send();
+    res.json({ error: "Internal server error" });
   }
 };
 
@@ -30,9 +28,9 @@ export const addSitter = async (
     });
     await sitter.save();
     res.status(201);
-    res.json(sitter);
+    res.json({ data: sitter });
   } catch (e) {
     res.status(500);
-    res.send();
+    res.json({ error: "Internal server error" });
   }
 };
