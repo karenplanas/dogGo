@@ -1,5 +1,5 @@
 import express from "express";
-import * as sitterController from "./controllers/sitterControl";
+import * as sitterController from "./controllers/sitter-controller";
 
 const router = express.Router();
 

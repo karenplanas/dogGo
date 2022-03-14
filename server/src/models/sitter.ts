@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-interface ISitterSchema {
+interface ISitter {
   name: string;
   quote: string;
   avatar: string;
 }
 
-const SitterSchema = new Schema<ISitterSchema>({
+const SitterSchema = new Schema<ISitter>({
   name: {
     type: String,
     required: true,
@@ -20,11 +20,11 @@ const SitterSchema = new Schema<ISitterSchema>({
   },
 });
 
-const Sitter = mongoose.model<ISitterSchema>("Sitter", SitterSchema);
+const Sitter = mongoose.model<ISitter>("Sitter", SitterSchema);
 
 
 const findSitters = () => {
   return Sitter.find();
 }
 
-export { Sitter, findSitters };
+export { ISitter, Sitter, findSitters };

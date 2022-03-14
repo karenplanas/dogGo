@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "nodemon src/index.ts",
-    "test": "jest --detectOpenHandles",
+    "test": "jest --detectOpenHandles --silent",
     "test-and-watch": "jest --detectOpenHandles --watchAll"
   },
   "keywords": [],
