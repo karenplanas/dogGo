@@ -14,7 +14,6 @@ const SitterSchema = new Schema<ISitterSchema>({
   },
   quote: {
     type: String,
-    required: true,
   },
   avatar: {
     type: String,
@@ -23,4 +22,9 @@ const SitterSchema = new Schema<ISitterSchema>({
 
 const Sitter = mongoose.model<ISitterSchema>("Sitter", SitterSchema);
 
-export default Sitter;
+
+const findSitters = () => {
+  return Sitter.find();
+}
+
+export { Sitter, findSitters };
