@@ -1,19 +1,20 @@
 import React from "react";
-import CTA from "../CTA/CTA";
+import { Link } from "react-router-dom";
+// import CTA from "../CTA/CTA";
 import puppiesSuitcase from "../../static/images/transparent.png";
-// did i want to have more done yes, yes i did. but also batman came out and a new season of rick and morty on netflix so whos really to blame for my lack of productivity.
-import "./home.css";
 import HomeSocials from "../HomeSocials/HomeSocials";
+import { HomeDiscoverButtons } from "../HomeDiscoverButtons/HomeDiscoverButtons";
+import "./Home.css";
 
-// testing
 const Home: React.FC = () => {
   return (
     <header id="home">
       <div className="container header__container">
         <h1> DOGGO </h1>
-        <h5> Make it their holiday too</h5>
-        <CTA />
-        <HomeSocials />
+        <h3> Make it their holiday too </h3>
+        {/* <CTA /> */}
+        <HomeDiscoverButtons />
+        {/* <HomeSocials /> */}
         <div className="landingPhoto">
           <img
             src={puppiesSuitcase}
@@ -22,9 +23,14 @@ const Home: React.FC = () => {
           />
         </div>
 
-        <a href="#dogSitter" className="scroll__down">
+        {/* <a href="#dogSitter" className="scroll__down">
           Scroll Down
-        </a>
+        </a> */}
+
+        {/* <Link to="sitter" >
+          <div className="scroll__down">Scroll Down</div>
+        </Link> */}
+
       </div>
     </header>
   );
