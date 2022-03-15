@@ -9,7 +9,7 @@ import {
   groomerIcon,
   petShopIcon,
   userPositionIcon,
-} from "../marker-icons";
+} from "../MarkerIcons";
 import "./Map.css";
 
 const ContextualizedMap: React.FC = () => {
