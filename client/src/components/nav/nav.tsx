@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineHome } from "react-icons/ai";
-import { FaMapMarkedAlt, FaHotel, FaRegUser } from "react-icons/fa";
+import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
+import { FaMapMarkedAlt, FaHotel } from "react-icons/fa";
 import { GiSittingDog } from "react-icons/gi";
 import { useLocation } from "react-router";
 import clsx from 'clsx'
@@ -32,7 +32,7 @@ const Nav: React.FC = () => {
             </Link>
 
             <Link to="login" className={ clsx({active: pathname.startsWith("/login")})} >
-              <FaRegUser />
+              <AiOutlineUser />
             </Link>
           </nav>
         )
