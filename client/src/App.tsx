@@ -6,8 +6,8 @@ import { Sitter } from "./components/Sitter/Sitter";
 import Login from "./components/login/login";
 
 import { Map } from "./components/Map/Map";
-import { PetHotels } from "./components/PetHotels/PetHotels";
-import Home from "./components/Home/Home";
+import { PetHotels } from "./components/petHotels/PetHotels";
+import Home from "./components/Home/home";
 import { LoginScreen } from "./components/LoginScreen/LoginScreen";
 
 const App: React.FC = () => {
