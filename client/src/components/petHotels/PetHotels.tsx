@@ -5,37 +5,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { IHotel } from "../../interfaces/IHotel";
+import { fetchHotels } from "../../services/ApiClient";
 import './PetHotels.css'
 
 const PetHotels: React.FC = () => {
   const [hotels, setHotels] = useState<IHotel[]>([]);
 
-  const options = {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      Authorization: "fsq3qx9qlhqnNGwk86iRqQd7xt0tH9hVD5fk+5VhNkjbt7E=",
-    },
-  };
-
-  const fetchHotels = useCallback(async () => {
-    const response = await fetch(
-      "https://api.foursquare.com/v3/places/nearby?ll=52.24%2C0.71&query=hotels&limit=10",
-      options
-    );
-    const json = await response.json();
-    console.log(json.results);
-    setHotels(json.results);
-  }, []);
-
   useEffect(() => {
-    fetchHotels();
+    fetchHotels().then((hotels) => setHotels(hotels));
   }, []);
 
+  console.log('hotels', hotels);
   return (
     <section id="petHotels">
-      <h2> Pet Friendly Hotels </h2>
-      <h5> Book a stay at the top rated pet friendly hotels </h5>
+      <div className="PetHotels-titles">
+        <h2> Pet Friendly Hotels </h2>
+        <h3> Book a stay at the top rated pet friendly hotels </h3>
+      </div>
       <Swiper
         className="container hotel_container"
         modules={[Navigation, Pagination, A11y]}
@@ -45,6 +31,7 @@ const PetHotels: React.FC = () => {
         pagination={true}
       >
         {hotels.length > 0 ? (
+
           hotels.map((hotel) => (
             <SwiperSlide className="hotel" key={hotel.fsq_id}>
               <div className="hotel_head">
