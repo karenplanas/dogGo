@@ -4,8 +4,8 @@ import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { FaMapMarkedAlt, FaHotel } from "react-icons/fa";
 import { GiSittingDog } from "react-icons/gi";
 import { useLocation } from "react-router";
-import clsx from 'clsx'
-import "./nav.css";
+import clsx from "clsx";
+import "./Nav.css";
 
 const Nav: React.FC = () => {
   const { pathname } = useLocation();

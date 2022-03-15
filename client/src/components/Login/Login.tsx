@@ -3,7 +3,7 @@ import { useUserContext } from '../../context/UserContext';
 import puppiesSuitcase from "../../static/images/transparent.png";
 import { GoogleLogin } from "./GoogleLogin";
 import { GoogleLogout } from './GoogleLogout';
-import './Login.css'
+import './Login.css' 
 
 const Login: React.FC = () => {
   const { user } = useUserContext();

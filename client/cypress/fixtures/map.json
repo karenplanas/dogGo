@@ -1,0 +1,294 @@
+{
+  "results": [
+    {
+      "fsq_id": "4b5e12b8f964a5201b7c29e3",
+      "categories": [
+        {
+          "id": 17003,
+          "name": "Arts and Crafts Store",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/artstore_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "census_block": "170313204001021",
+      "chains": [],
+      "distance": 387,
+      "geocodes": {
+        "main": {
+          "latitude": 41.877363,
+          "longitude": -87.625383
+        },
+        "roof": {
+          "latitude": 41.877363,
+          "longitude": -87.625383
+        }
+      },
+      "location": {
+        "address": "332 S Michigan Ave",
+        "country": "US",
+        "cross_street": "at E Van Buren St",
+        "dma": "Chicago",
+        "formatted_address": "332 S Michigan Ave (at E Van Buren St), Chicago, IL 60604",
+        "locality": "Chicago",
+        "neighborhood": ["Loop"],
+        "postcode": "60604",
+        "region": "IL"
+      },
+      "name": "Utrecht Art Supplies",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4e88883bd22d82b474149472",
+      "categories": [
+        {
+          "id": 17003,
+          "name": "Arts and Crafts Store",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/artstore_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "census_block": "170313204001008",
+      "chains": [],
+      "distance": 450,
+      "geocodes": {
+        "main": {
+          "latitude": 41.881151,
+          "longitude": -87.6258
+        },
+        "roof": {
+          "latitude": 41.881151,
+          "longitude": -87.6258
+        }
+      },
+      "location": {
+        "address": "29 S Wabash Ave",
+        "country": "US",
+        "cross_street": "btwn E Monroe St & W Madison St",
+        "dma": "Chicago",
+        "formatted_address": "29 S Wabash Ave (btwn E Monroe St & W Madison St), Chicago, IL 60603",
+        "locality": "Chicago",
+        "neighborhood": ["Cityfront Place"],
+        "postcode": "60603",
+        "region": "IL"
+      },
+      "name": "Utrecht Art Supplies",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4b83111df964a5209cf530e3",
+      "categories": [
+        {
+          "id": 17000,
+          "name": "Retail",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "census_block": "170313206002002",
+      "chains": [],
+      "distance": 535,
+      "geocodes": {
+        "main": {
+          "latitude": 41.874048,
+          "longitude": -87.626301
+        },
+        "roof": {
+          "latitude": 41.874048,
+          "longitude": -87.626301
+        }
+      },
+      "location": {
+        "address": "612 S Wabash Ave",
+        "country": "US",
+        "cross_street": "Between Harrison St. and Balbo Dr.",
+        "dma": "Chicago",
+        "formatted_address": "612 S Wabash Ave (Between Harrison St. and Balbo Dr.), Chicago, IL 60605",
+        "locality": "Chicago",
+        "neighborhood": ["Loop"],
+        "postcode": "60605",
+        "region": "IL"
+      },
+      "name": "ABP Art Supplies, Books & Photography in the City",
+      "related_places": {
+        "parent": {
+          "fsq_id": "56997f18498e49b6ad96fe0f",
+          "name": "Columbia College Chicago"
+        }
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "d5403c8bad1f4f6f7a349a96",
+      "categories": [
+        {
+          "id": 17102,
+          "name": "Office Supply Store",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/papergoods_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "census_block": "170313204001018",
+      "chains": [],
+      "distance": 287,
+      "geocodes": {
+        "main": {
+          "latitude": 41.878609,
+          "longitude": -87.626391
+        },
+        "roof": {
+          "latitude": 41.878609,
+          "longitude": -87.626391
+        }
+      },
+      "location": {
+        "address": "234 S Wabash Ave",
+        "address_extended": "Fl 2",
+        "country": "US",
+        "dma": "Chicago",
+        "formatted_address": "234 S Wabash Ave, Chicago, IL 60604",
+        "locality": "Chicago",
+        "neighborhood": ["Loop"],
+        "postcode": "60604",
+        "region": "IL"
+      },
+      "name": "Chicago Office Equipment & Supplies",
+      "related_places": {}
+    },
+    {
+      "fsq_id": "1e7cf0803ae144a0ac9a3cff",
+      "categories": [
+        {
+          "id": 17131,
+          "name": "Stationery Store",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "census_block": "170318391002010",
+      "chains": [],
+      "distance": 371,
+      "geocodes": {
+        "main": {
+          "latitude": 41.878278,
+          "longitude": -87.634283
+        },
+        "roof": {
+          "latitude": 41.878278,
+          "longitude": -87.634283
+        }
+      },
+      "location": {
+        "address": "216 W Jackson Blvd",
+        "country": "US",
+        "dma": "Chicago",
+        "formatted_address": "216 W Jackson Blvd, Chicago, IL 60606",
+        "locality": "Chicago",
+        "neighborhood": ["Haymarket"],
+        "postcode": "60606",
+        "region": "IL"
+      },
+      "name": "Stevens Maloney Office Supplies & Furniture",
+      "related_places": {}
+    },
+    {
+      "fsq_id": "a7dc067282574485932cc9fe",
+      "categories": [
+        {
+          "id": 17102,
+          "name": "Office Supply Store",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/papergoods_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "distance": 419,
+      "geocodes": {
+        "main": {
+          "latitude": 41.876735,
+          "longitude": -87.634532
+        },
+        "roof": {
+          "latitude": 41.876735,
+          "longitude": -87.634532
+        }
+      },
+      "location": {
+        "address": "235 W Van Buren St",
+        "address_extended": "Unit 2013",
+        "country": "US",
+        "dma": "Chicago",
+        "formatted_address": "235 W Van Buren St, Chicago, IL 60607",
+        "locality": "Chicago",
+        "neighborhood": ["Loop"],
+        "postcode": "60607",
+        "region": "IL"
+      },
+      "name": "United Banking Supplies",
+      "related_places": {}
+    },
+    {
+      "fsq_id": "4f02e409f4c346bcd6e099af",
+      "categories": [
+        {
+          "id": 17102,
+          "name": "Office Supply Store",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/papergoods_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "census_block": "170318391001060",
+      "chains": [],
+      "distance": 484,
+      "geocodes": {
+        "main": {
+          "latitude": 41.882116,
+          "longitude": -87.632095
+        },
+        "roof": {
+          "latitude": 41.882116,
+          "longitude": -87.632095
+        }
+      },
+      "location": {
+        "address": "1 N La Salle St",
+        "address_extended": "Ste 1600",
+        "country": "US",
+        "dma": "Chicago",
+        "formatted_address": "1 N La Salle St, Chicago, IL 60602",
+        "locality": "Chicago",
+        "neighborhood": ["Haymarket"],
+        "postcode": "60602",
+        "region": "IL"
+      },
+      "name": "Andrews Office Supplies",
+      "related_places": {}
+    }
+  ],
+  "context": {
+    "geo_bounds": {
+      "circle": {
+        "center": {
+          "latitude": 41.8781,
+          "longitude": -87.6298
+        },
+        "radius": 600
+      }
+    }
+  }
+}
