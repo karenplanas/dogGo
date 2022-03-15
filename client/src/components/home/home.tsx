@@ -1,7 +1,7 @@
 import React from "react";
 import puppiesSuitcase from "../../static/images/transparent.png";
 import { HomeDiscoverButtons } from "../HomeDiscoverButtons/HomeDiscoverButtons";
-import "./Home.css";
+import "./home.css";
 
 const Home: React.FC = () => {
   return (
