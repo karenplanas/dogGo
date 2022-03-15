@@ -1,3 +1,4 @@
+import { config } from "../config";
 import { IHotel } from "../interfaces/IHotel";
 import { IPlace } from "../interfaces/IPlace";
 
@@ -7,7 +8,7 @@ const options = {
   method: "GET",
   headers: {
     Accept: "application/json",
-    Authorization: "fsq3UJXDiv/tcMJ7b4U++v+tMEkF3k1ymQU6KGaEIxtfdD8=",
+    Authorization: config.FOURSQUARE_API_TOKEN,
   },
 };
 

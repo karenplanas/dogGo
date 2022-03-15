@@ -1,8 +1,9 @@
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 import { AiFillFacebook } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import './login.css'
+import './Login.css'
+import { GoogleLogin } from "./GoogleLogin";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,9 +17,7 @@ const Login = () => {
       <div className="login">
         <div className="wrapper">
           <div className="left">
-            <div className="loginButton btn google">
-              <FcGoogle />
-            </div>
+            <GoogleLogin />
             <div className="loginButton btn facebook">
               <AiFillFacebook />
             </div>
