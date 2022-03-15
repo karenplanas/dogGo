@@ -2,13 +2,13 @@ import { Schema, model } from 'mongoose'
 
 interface ILoginMethod {
   provider: 'google' | 'facebook' | 'userAndPassword'
-  providerId: string
+  providerUserId: string
   secret?: string
 }
 
 const loginMethodSchema = new Schema<ILoginMethod>({
   provider: { type: String },
-  providerId: { type: String },
+  providerUserId: { type: String },
   secret: { type: String}
 })
 

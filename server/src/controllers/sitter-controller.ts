@@ -1,5 +1,4 @@
 import express from "express";
-import { isYieldExpression } from "typescript";
 import {Sitter, findSitters} from "../models/sitter";
 
 export const getSitters = async (
