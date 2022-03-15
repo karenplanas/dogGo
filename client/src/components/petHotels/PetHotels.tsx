@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { IHotel } from "../../interfaces/IHotel";
 import { fetchHotels } from "../../services/ApiClient";
-import './PetHotels.css'
+import "./PetHotels.css";
 
 const PetHotels: React.FC = () => {
   const [hotels, setHotels] = useState<IHotel[]>([]);
@@ -15,7 +15,7 @@ const PetHotels: React.FC = () => {
     fetchHotels().then((hotels) => setHotels(hotels));
   }, []);
 
-  console.log('hotels', hotels);
+  console.log("hotels", hotels);
   return (
     <section id="petHotels">
       <div className="PetHotels-titles">
@@ -31,7 +31,6 @@ const PetHotels: React.FC = () => {
         pagination={true}
       >
         {hotels.length > 0 ? (
-
           hotels.map((hotel) => (
             <SwiperSlide className="hotel" key={hotel.fsq_id}>
               <div className="hotel_head">
