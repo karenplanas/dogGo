@@ -4,7 +4,7 @@ import { Icon, LatLng, divIcon } from "leaflet";
 import clsx from 'clsx';
 import { CATEGORIES, fetchWithFilters } from '../../services/ApiClient';
 import { IPlace } from '../../interfaces/IPlace';
-import { vetIcon, groomerIcon, petShopIcon, userPositionIcon } from '../marker-icons';
+import { vetIcon, groomerIcon, petShopIcon, userPositionIcon } from '../MarkerIcons';
 import './Map.css'
 
 const ContextualizedMap: React.FC = () => {

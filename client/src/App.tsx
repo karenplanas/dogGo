@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Nav from "./components/Nav/nav";
 import { Sitter } from "./components/Sitter/Sitter";
-import Login from "./components/login/login";
+import Login from "./components/Login/Login-2";
 
 import { Map } from "./components/Map/Map";
 import { PetHotels } from "./components/PetHotels/PetHotels";
-import Home from "./components/Home/Home";
+import Home from "./components/Home/home-2";
 import { LoginScreen } from "./components/LoginScreen/LoginScreen";
 
 const App: React.FC = () => {
