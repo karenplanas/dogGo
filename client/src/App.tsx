@@ -6,7 +6,7 @@ import { Sitter } from "./components/Sitter/Sitter";
 import Login from "./components/login/login";
 
 import { Map } from "./components/Map/Map";
-import { PetHotels } from "./components/PetHotels/PetHotels";
+import { PetHotels } from "./components/petHotels/PetHotels";
 
 const App: React.FC = () => {
   return (

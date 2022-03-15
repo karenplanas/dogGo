@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { IHotel } from "../../interfaces/IHotel";
-import './PetHotels.css'
+import "./petHotels.css";
 
 const PetHotels: React.FC = () => {
   const [hotels, setHotels] = useState<IHotel[]>([]);

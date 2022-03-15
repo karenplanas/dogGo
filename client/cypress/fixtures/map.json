@@ -1,0 +1,40 @@
+{
+  "fsq_id": "4e88883bd22d82b474149472",
+  "categories": [
+    {
+      "id": 17003,
+      "name": "Arts and Crafts Store",
+      "icon": {
+        "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/artstore_",
+        "suffix": ".png"
+      }
+    }
+  ],
+  "census_block": "170313204001008",
+  "chains": [],
+  "distance": 450,
+  "geocodes": {
+    "main": {
+      "latitude": 41.881151,
+      "longitude": -87.6258
+    },
+    "roof": {
+      "latitude": 41.881151,
+      "longitude": -87.6258
+    }
+  },
+  "location": {
+    "address": "29 S Wabash Ave",
+    "country": "US",
+    "cross_street": "btwn E Monroe St & W Madison St",
+    "dma": "Chicago",
+    "formatted_address": "29 S Wabash Ave (btwn E Monroe St & W Madison St), Chicago, IL 60603",
+    "locality": "Chicago",
+    "neighborhood": ["Cityfront Place"],
+    "postcode": "60603",
+    "region": "IL"
+  },
+  "name": "Utrecht Art Supplies",
+  "related_places": {},
+  "timezone": "America/Chicago"
+}
