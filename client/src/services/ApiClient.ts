@@ -66,11 +66,11 @@ const performRequest = async <T>({
 
 
 const processLogin = async (loginMethod: ILoginMethod): Promise<IUser> => {
-  return performRequest<IUser>({ 
+  return performRequest<{ data: IUser }>({ 
     method: 'POST', 
     path: socialLoginUrl,
     body: loginMethod
-  });
+  }).then((r) => r.data)
 }
 
 

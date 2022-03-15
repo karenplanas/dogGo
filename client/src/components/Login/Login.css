@@ -1,3 +1,9 @@
+.login-picture {
+  display: flex;
+  flex-direction: column;
+  gap: 32px
+}
+
 .login_container {
   text-align: center;
 }

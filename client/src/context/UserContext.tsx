@@ -7,6 +7,7 @@ const STORAGE_KEY = 'user';
 interface IUserContext {
   user?: IUser;
   socialLogin: (loginMethod: ILoginMethod) => void;
+  logout: () => void;
 }
 
 const UserContext = createContext<IUserContext | undefined>(undefined);
@@ -27,9 +28,15 @@ const UserContextProvider: React.FC = ({children}) => {
     setUser(response);
   };
 
+  const logout = () => {
+    setUser(undefined);
+    window.localStorage.removeItem(STORAGE_KEY);
+  }
+
   const value = {
     user, 
-    socialLogin
+    socialLogin,
+    logout
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>
