@@ -12,24 +12,33 @@ const Nav: React.FC = () => {
 
   return (
     <nav>
-      <Link to="/" className={ clsx({active: pathname === "/"})} >
-        <AiOutlineHome /> 
+      <Link to="/" className={clsx({ active: pathname === "/" })}>
+        <AiOutlineHome />
       </Link>
-    
-      <Link to="petHotels" className={ clsx({active: pathname.startsWith("/petHotel")})  } >
+
+      <Link
+        to="petHotels"
+        className={clsx({ active: pathname.startsWith("/petHotel") })}
+      >
         <FaHotel />
       </Link>
-    
-      <Link to="map" className={ clsx({active:pathname.startsWith("/map")}) } >
-        <FaMapMarkedAlt />
+
+      <Link to="map" className={clsx({ active: pathname.startsWith("/map") })}>
+        <FaMapMarkedAlt data-testid="map-btn" />
       </Link>
-      
-      <Link to="sitter" className={ clsx({active: pathname.startsWith("/sitter")}) } >
+
+      <Link
+        to="sitter"
+        className={clsx({ active: pathname.startsWith("/sitter") })}
+      >
         <GiSittingDog />
       </Link>
 
-      <Link to="login" className={ clsx({active: pathname.startsWith("/login")})} >
-        <AiOutlineUser />
+      <Link
+        to="login"
+        className={clsx({ active: pathname.startsWith("/login") })}
+      >
+        <AiOutlineUser data-testid="login-btn" />
       </Link>
     </nav>
   );

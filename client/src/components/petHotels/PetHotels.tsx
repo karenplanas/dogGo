@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { IHotel } from "../../interfaces/IHotel";
 import { fetchHotels } from "../../services/ApiClient";
-import "./petHotels.css";
+import "./PetHotels.css";
 
 const PetHotels: React.FC = () => {
   const [hotels, setHotels] = useState<IHotel[]>([]);
