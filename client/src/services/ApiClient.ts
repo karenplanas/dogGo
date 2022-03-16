@@ -1,5 +1,4 @@
 import { config } from "../config";
-import { IHotel } from "../interfaces/IHotel";
 import { IPlace } from "../interfaces/IPlace";
 import { ILoginMethod, IUser } from "../interfaces/IUser";
 
@@ -70,8 +69,8 @@ const fetchWithFilters = (
 
 };
 
-const fetchHotels = async(lat: number, long: number): Promise<IHotel[]> => {
-  return performRequest<{ results: IHotel[]}>({
+const fetchHotels = async(lat: number, long: number): Promise<IPlace[]> => {
+  return performRequest<{ results: IPlace[]}>({
     method: 'GET',
     token: config.FOURSQUARE_API_TOKEN,
     path: `${baseUrl}search`,
