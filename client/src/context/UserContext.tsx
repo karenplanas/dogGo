@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
+import { useMutation } from 'react-query'
+import { Navigate } from 'react-router';
 import { ILoginMethod, IUser } from '../interfaces/IUser'
 import * as ApiClient from '../services/ApiClient'
 
@@ -15,6 +17,16 @@ const UserContext = createContext<IUserContext | undefined>(undefined);
 const UserContextProvider: React.FC = ({children}) => {
   const storedData = window.localStorage.getItem(STORAGE_KEY);
 
+  const { mutate: socialLogin } = useMutation(
+    (loginMethod: ILoginMethod) => ApiClient.processLogin(loginMethod),
+    {
+      onSuccess: (user) => {
+        setUser(user)
+      },
+      onError: () => logout()
+    }  
+  )
+
   const [user, setUser] = useState<IUser | undefined>(
     storedData ? JSON.parse(storedData) : undefined
   )
@@ -23,10 +35,10 @@ const UserContextProvider: React.FC = ({children}) => {
     user && window.localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
   }, [user]);
 
-  const socialLogin = async (loginMethod: ILoginMethod) => {
-    const response = await ApiClient.processLogin(loginMethod);
-    setUser(response);
-  };
+  // const socialLogin = async (loginMethod: ILoginMethod) => {
+  //   const response = await ApiClient.processLogin(loginMethod);
+  //   setUser(response);
+  // };
 
   const logout = () => {
     setUser(undefined);

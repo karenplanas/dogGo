@@ -1,4 +1,5 @@
 import React from "react";
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Nav } from "./components/Nav/Nav";
 import { Sitter } from "./components/Sitter/Sitter";
@@ -7,23 +8,28 @@ import { Map } from "./components/Map/Map";
 import { PetHotels } from "./components/PetHotels/PetHotels";
 import { Home } from "./components/Home/Home";
 import { UserContextProvider } from "./context/UserContext";
+import './App.css'
+
+const queryClient = new QueryClient()
 
 const App: React.FC = () => {
   return (
-    <UserContextProvider>
-      <BrowserRouter>
-        <div className="App">
-          <Nav />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="petHotels" element={<PetHotels />} />
-            <Route path="map" element={<Map />} />
-            <Route path="sitter" element={<Sitter />} />
-            <Route path="login" element={<Login />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </UserContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <UserContextProvider>
+        <BrowserRouter>
+          <div className="App">
+            <Nav />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="petHotels" element={<PetHotels />} />
+              <Route path="map" element={<Map />} />
+              <Route path="sitter" element={<Sitter />} />
+              <Route path="login" element={<Login />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </UserContextProvider>
+    </QueryClientProvider>
   );
 };
 

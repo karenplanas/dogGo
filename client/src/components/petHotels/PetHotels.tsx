@@ -1,21 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useQuery } from 'react-query';
+import useGeolocation from 'react-hook-geolocation'
 import { BiCheck } from "react-icons/bi";
 import { Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { IHotel } from "../../interfaces/IHotel";
 import { fetchHotels } from "../../services/ApiClient";
-import "./petHotels.css";
+import { Loader } from "../loader/Loader";
+import "./PetHotels.css";
 
 const PetHotels: React.FC = () => {
-  const [hotels, setHotels] = useState<IHotel[]>([]);
+  const {latitude, longitude} = useGeolocation();
 
-  useEffect(() => {
-    fetchHotels().then((hotels) => setHotels(hotels));
-  }, []);
+  const { data: hotels, isLoading } = useQuery(
+    ['fetchHotels', latitude, longitude], 
+    () => fetchHotels(latitude, longitude),
+    {
+      enabled: !!latitude && !!longitude,
+    }  
+  )
 
-  console.log("hotels", hotels);
+  if (isLoading || !hotels) return <Loader />
+
   return (
     <section id="petHotels">
       <div className="PetHotels-titles">
