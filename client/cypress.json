@@ -1,3 +1,10 @@
 {
-  "baseUrl": "http://localhost:3000"
+  "baseUrl": "http://localhost:3000",
+  "env": {
+    "cookieName": "website.cookie.id",
+    "googleSocialLoginUsername": "some@gmail.com",
+    "googleSocialLoginPassword": "somePassword",
+    "loginUrl": "https://localhost:3000/login",
+    "homepage": "http://localhost:3000"
+  }
 }
