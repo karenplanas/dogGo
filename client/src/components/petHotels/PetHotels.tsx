@@ -7,13 +7,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { fetchHotels } from "../../services/ApiClient";
-import { Loader } from "../loader/Loader";
+import { Loader } from "../Loader/Loader";
 import "./PetHotels.css";
 
 const PetHotels: React.FC = () => {
   const {latitude, longitude} = useGeolocation();
 
-  const { data: hotels, isLoading } = useQuery(
+  const { data: hotels, isFetched } = useQuery(
     ['fetchHotels', latitude, longitude], 
     () => fetchHotels(latitude, longitude),
     {
@@ -21,7 +21,7 @@ const PetHotels: React.FC = () => {
     }  
   )
 
-  if (isLoading || !hotels) return <Loader />
+  if (!isFetched || !hotels) return <Loader />
 
   return (
     <section id="petHotels">

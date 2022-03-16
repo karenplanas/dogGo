@@ -16,7 +16,7 @@ const Nav: React.FC = () => {
         <AiOutlineHome /> 
       </Link>
     
-      <Link to="petHotels" className={ clsx({active: pathname.startsWith("/petHotel")})  } >
+      <Link to="hotels" className={ clsx({active: pathname.startsWith("/hotel")})  } >
         <FaHotel />
       </Link>
     

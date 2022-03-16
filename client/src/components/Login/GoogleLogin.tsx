@@ -12,6 +12,7 @@ const GoogleLogin : React.FC = () => {
   const navigate = useNavigate();
 
   const onSuccess = async (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
+    console.log('res', res);
     await socialLogin({
       provider: 'google',
       secret: (res as GoogleLoginResponse).tokenId
@@ -19,6 +20,7 @@ const GoogleLogin : React.FC = () => {
     navigate("/");
   }
 
+  
   const onFailure = (res: GoogleLoginResponse | GoogleLoginResponseOffline ) => {
     console.log('Login failed', res);
   }
