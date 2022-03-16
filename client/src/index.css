@@ -41,7 +41,11 @@ body {
 
 body {
   height: 100vh;
-} 
+}
+
+#root {
+  height: 100%
+}
 
 /* ===== General Styles ======*/
 .container {

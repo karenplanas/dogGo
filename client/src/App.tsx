@@ -7,6 +7,7 @@ import { Map } from "./components/Map/Map";
 import { PetHotels } from "./components/PetHotels/PetHotels";
 import { Home } from "./components/Home/Home";
 import { UserContextProvider } from "./context/UserContext";
+import './App.css'
 
 const App: React.FC = () => {
   return (
