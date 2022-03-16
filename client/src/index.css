@@ -41,7 +41,11 @@ body {
 
 body {
   height: 100vh;
-} 
+}
+
+#root {
+  height: 100%
+}
 
 /* ===== General Styles ======*/
 .container {
@@ -114,6 +118,14 @@ img {
   display: block;
   width: 100%;
   object-fit: cover;
+}
+
+.swiper-pagination-bullet  {
+  background: rgba(214, 210, 210, 0.938) !important;
+}
+
+.swiper-pagination-bullet-active  {
+  background: var(--color-primary) !important;
 }
 
 /* MEDIA QUERIES */

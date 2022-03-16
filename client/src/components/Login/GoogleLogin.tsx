@@ -12,13 +12,12 @@ import "./GoogleLogin.css";
 // https://dev.to/sivaneshs/add-google-login-to-your-react-apps-in-10-mins-4del
 
 const GoogleLogin: React.FC = () => {
-  const { user, socialLogin } = useUserContext();
+  const { socialLogin } = useUserContext();
   const navigate = useNavigate();
 
   const onSuccess = async (
     res: GoogleLoginResponse | GoogleLoginResponseOffline
   ) => {
-    console.log("Login success", res);
     await socialLogin({
       provider: "google",
       secret: (res as GoogleLoginResponse).tokenId,

@@ -17,8 +17,8 @@ const Nav: React.FC = () => {
       </Link>
 
       <Link
-        to="petHotels"
-        className={clsx({ active: pathname.startsWith("/petHotel") })}
+        to="hotels"
+        className={clsx({ active: pathname.startsWith("/hotels") })}
       >
         <FaHotel />
       </Link>

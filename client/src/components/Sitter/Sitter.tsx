@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Pagination, Navigation, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, A11y } from "swiper";
 import avatarPic from "../../static/images/avatar.jpg";
 // Import Swiper styles
 import "swiper/css";
@@ -15,11 +15,15 @@ const Sitter: React.FC = () => {
   const [name, setName] = useState("");
   const [quote, setQuote] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const getSitters = () => {
     fetch(APIbase + "/sitters")
       .then((res) => res.json())
-      .then((data) => setSitters(data))
+      .then(({ data }) => {
+        setSitters(data);
+        setIsLoading(false);
+      })
       .catch((e) => console.error(e));
   };
 
@@ -49,12 +53,11 @@ const Sitter: React.FC = () => {
     });
   };
 
-  // need avatar images have found middleware that allows images to be stored to mongoose but ive also read this is bad practice.
   return (
     <section id="dogSitter">
       <div className="Sitter-titles">
         <h2> Book a sitter for your pet </h2>
-        <h3> Specialists in animal care will take care of your pet wether in your home or theirs </h3>
+        <h3> Specialists in animal care, will take care of your pet in your home or theirs </h3>
       </div>
       <Swiper
         className="container sitter_container"
@@ -64,7 +67,7 @@ const Sitter: React.FC = () => {
         navigation
         pagination={true}
       >
-        {sitters.length > 0 ? (
+        {sitters.length > 0 && !isLoading ? (
           sitters.map((sitter) => (
             <SwiperSlide key={sitter._id} className="sitter">
               <div className="sitter_avatar">

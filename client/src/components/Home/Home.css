@@ -25,6 +25,7 @@ header {
 
 .dogPic {
   height: 15rem;
+  margin-top: 16px;
 }
 
 /* MEDIA QUERIES */

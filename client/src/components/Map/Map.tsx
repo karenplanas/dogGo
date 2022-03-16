@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import useGeolocation from 'react-hook-geolocation'
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import { Icon, LatLng, divIcon } from "leaflet";
 import clsx from "clsx";
@@ -11,6 +12,7 @@ import {
   userPositionIcon,
 } from "../MarkerIcons";
 import "./Map.css";
+import { Loader } from "../Loader/Loader";
 
 const ContextualizedMap: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -156,9 +158,12 @@ const ContextualizedMap: React.FC = () => {
 };
 
 const Map: React.FC = () => {
+  const { latitude, longitude } = useGeolocation();
+  if (!latitude || !longitude) return <Loader />;
+
   return (
     <div id="map-container">
-      <MapContainer zoom={13} center={[41.0378688, -8.6388822]}>
+      <MapContainer zoom={13} center={[latitude, longitude]}>
         <ContextualizedMap />
       </MapContainer>
     </div>
