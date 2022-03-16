@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Pagination, Navigation, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, A11y } from "swiper";
 import avatarPic from "../../static/images/avatar.jpg";
 // Import Swiper styles
 import "swiper/css";

@@ -12,7 +12,7 @@ import {
   userPositionIcon,
 } from "../MarkerIcons";
 import "./Map.css";
-import { Loader } from "../loader/Loader";
+import { Loader } from "../Loader/Loader";
 
 const ContextualizedMap: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);

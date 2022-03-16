@@ -120,6 +120,14 @@ img {
   object-fit: cover;
 }
 
+.swiper-pagination-bullet  {
+  background: rgba(214, 210, 210, 0.938) !important;
+}
+
+.swiper-pagination-bullet-active  {
+  background: var(--color-primary) !important;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 1024px) {

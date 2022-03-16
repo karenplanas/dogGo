@@ -1,5 +1,6 @@
 import { config } from "../config";
 import { IPlace } from "../interfaces/IPlace";
+import { IPlacePictures } from "../interfaces/IPlacePictures";
 import { ILoginMethod, IUser } from "../interfaces/IUser";
 
 const baseUrl = 'https://api.foursquare.com/v3/places/';
@@ -60,7 +61,7 @@ const fetchWithFilters = (
       token: config.FOURSQUARE_API_TOKEN,
       queryParams: {
         categories: cat,
-        limit: 50,
+        limit: 30,
         sw,
         ne,
         sort: 'distance',
@@ -77,7 +78,7 @@ const fetchHotels = async(lat: number, long: number): Promise<IPlace[]> => {
     queryParams: {
       ll: [lat, long],
       categories: CATEGORIES.logding,
-      limit: 20
+      limit: 5
     }
   }).then((resp) => resp.results)
 }
@@ -90,6 +91,14 @@ const processLogin = async (loginMethod: ILoginMethod): Promise<IUser> => {
   }).then((r) => r.data)
 }
 
+const fetchHotelsPictures = async ( hotelId: string ) => {
+  return performRequest<IPlacePictures[]>({
+    method: 'GET',
+    path: `${baseUrl}${hotelId}/photos`,
+    token: config.FOURSQUARE_API_TOKEN,
+  }).then((pictures) => pictures.map((picture) => `${picture.prefix}original${picture.suffix}`))
+}
 
-export { fetchWithFilters, CATEGORIES, fetchHotels, processLogin }
+
+export { fetchWithFilters, CATEGORIES, fetchHotels, processLogin, fetchHotelsPictures }
 
