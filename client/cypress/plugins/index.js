@@ -16,11 +16,14 @@
  * @type {Cypress.PluginConfig}
  */
 const { GoogleSocialLogin } = require("cypress-social-logins").plugins;
+const { cypressBrowserPermissionsPlugin } = require('cypress-browser-permissions')
 
 module.exports = (on, config) => {
   on("task", {
     GoogleSocialLogin: GoogleSocialLogin,
   });
+  config = cypressBrowserPermissionsPlugin(on, config);
+  return config;
 };
 // eslint-disable-next-line no-unused-vars
 // module.exports = (on, config) => {

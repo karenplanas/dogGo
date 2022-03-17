@@ -5,6 +5,9 @@
     "googleSocialLoginUsername": "some@gmail.com",
     "googleSocialLoginPassword": "somePassword",
     "loginUrl": "https://localhost:3000/login",
-    "homepage": "http://localhost:3000"
+    "homepage": "http://localhost:3000",
+    "browserPermissions": {
+      "geolocation": "allow"
+    }
   }
 }

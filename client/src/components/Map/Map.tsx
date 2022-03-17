@@ -60,7 +60,7 @@ const ContextualizedMap: React.FC = () => {
       return;
     }
 
-    // Fetch catergories
+    // Fetch categories
     fetchWithFilters(
       categories as ("shop" | "vet" | "groomer")[],
       boundingBox
@@ -68,6 +68,7 @@ const ContextualizedMap: React.FC = () => {
       setIsLoading(false);
       setPlaces(result);
     });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, map, boundingBox]);
 
@@ -158,7 +159,7 @@ const ContextualizedMap: React.FC = () => {
 };
 
 const Map: React.FC = () => {
-  const { latitude, longitude } = useGeolocation();
+  const { latitude, longitude }= useGeolocation();
   if (!latitude || !longitude) return <Loader />;
 
   return (

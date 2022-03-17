@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "clsx": "^1.1.1",
+    "cypress-browser-permissions": "^1.1.0",
     "leaflet": "^1.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

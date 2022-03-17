@@ -8,7 +8,7 @@ import { HotelCard } from '../HotelCard/HotelCard';
 import './Hotels.css'
 
 // Swiper imports
-import { Pagination, Navigation, A11y } from "swiper";
+import { Pagination, Navigation, A11y, Mousewheel } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import 'swiper/css/pagination';
@@ -34,24 +34,23 @@ const Hotels: React.FC = () => {
       </div>
       <Swiper
         className='Hotels-Cards-container'       
-        modules={[Navigation, Pagination, A11y]}
+        modules={[Navigation, Pagination, A11y, Mousewheel]}
         spaceBetween={50}
         slidesPerView={1}
+        mousewheel={true}
         navigation
         pagination={true}
       >
-          <div className='Hotels-Cards-container'>
-            {
-              hotels.length > 0 ?
-              (hotels.map((hotel)=> (
-                <SwiperSlide className='swiper-slide bullet'>
-                  <HotelCard hotel={hotel} key={hotel.fsq_id}/>
-                </SwiperSlide>
-              )))
-              :
-              <h3>Not hotels found on the area</h3>
-            }
-          </div>
+        {
+          hotels.length > 0 ?
+          (hotels.map((hotel)=> (
+            <SwiperSlide>
+              <HotelCard hotel={hotel} key={hotel.fsq_id}/>
+            </SwiperSlide>
+          )))
+          :
+          <h3>No hotels found on the area</h3>
+        }
       </Swiper>
     </div>
   )
