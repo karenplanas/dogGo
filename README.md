@@ -1,9 +1,9 @@
-# dogGo 
+# dogGo - Legacy
 ### created by Martin West - [GitHub](https://github.com/martinwest1993) - [Linkedin](https://www.linkedin.com/in/martinwest1993/)
 
 dogGo is an application that allows users to search pet stores, vets and groomers; book pet friendly hotels and sitters and give recommendations on the best places to walk your pets. 
 
-I had the amazing opportunity along with Alisha Jungah to contribute to this project, adding testing, styles improvements and refactoring the application to TypeScript. 
+I had the amazing opportunity along with Alisha Jungah to contribute to this Legacy project, adding testing, styles improvements and refactoring the application to TypeScript. 
 
 # Screenshots 
 ## Home, map, and hotels screen
@@ -47,8 +47,9 @@ npm start
 * [Jest](https://jestjs.io/)
 * [Cypress](https://www.cypress.io/) 
 
-# Legacy project Contributors
+# Contributors
 * Alisha Jungah - [GitHub](https://github.com/alisha0815) - [Linkedin](https://www.linkedin.com/in/alisha-jungah-greve-b2abba211/)
+* Karen Planas - [Github](https://github.com/karenplanas) - [Linkedin](https://www.linkedin.com/in/karen-planas)
 
 # Testing support documentation:
 * [Testing with jest in TypeScript](https://itnext.io/testing-with-jest-in-typescript-cc1cd0095421)  
